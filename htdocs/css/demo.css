@@ -1,0 +1,27 @@
+html, body {
+	background-color: #121212;
+}
+#webcam_area {
+	width: 640px;
+	height: 480px;
+	margin: 0 auto;
+	background-color: #0a0;
+	color: #060;
+	text-align: center;
+}
+#controls {
+	width: 640px;
+	margin: 0 auto;
+	background-color: #000;
+}
+button {border-radius: 0; border: 0; padding: 20px; color: white; display: inline-block; float: left; width: 20%; margin-left: 10%;}
+
+#button_snap {background-color: #a00;}
+#button_freeze {background-color: #aa0;}
+#button_configure {background-color: #00a;}
+
+#button_snap:hover {background-color: #f00;}
+#button_freeze:hover {background-color: #ff0;}
+#button_configure:hover {background-color: #00f;}
+
+.clear {clear: both;}

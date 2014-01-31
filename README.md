@@ -1,4 +1,4 @@
-JPEGCam v1.0.11
+JPEGCam AMD v1.0.11
 ===============
 
 LICENCE
@@ -15,6 +15,7 @@ CONTRIBUTIONS
 * Ongoing Support: Matt Clements
 * onAllow Functionality: Liyan Chang
 * Additional Changes: Richard Nicholls
+* AMD Port: sprky0
 
 OVERVIEW
 --------
