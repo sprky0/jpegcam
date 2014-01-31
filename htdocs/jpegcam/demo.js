@@ -1,7 +1,7 @@
-define("demo", ["jpegcam/webcam"], function(cam) {
+define("jpegcam/demo", ["jpegcam/webcam"], function(cam) {
 
-	function my_local_callback_function(response) {
-		alert("HI!");
+	function callback_captured(response) {
+		alert("Captured!!");
 	}
 
 	var target = document.getElementById("webcam_area");
