@@ -33,7 +33,7 @@ REQUIREMENTS
 
 EMBEDDING IN YOUR PAGE
 ----------------------
-(For a working example, see "test.html" in the htdocs folder.)
+Note: this may not be working --> (For a working example, see "test.html" in the htdocs folder.)
 
 First, copy the following files to your web server:
 
@@ -41,26 +41,27 @@ First, copy the following files to your web server:
 * webcam.swf
 * shutter.mp3
 
-Next, edit your HTML and load the JavaScript library:
+Next, edit your JS to reference and load the library:
 
-	<script type="text/javascript" src="webcam.js"></script>
+ require.config({
+ 	paths: {
+ 	 	'webcam' : 'vendor/webcam.js'
+  	}
+ });
 
-Configure a few settings (see API CALLS for complete list):
+Get the swf embed code via the library, and append that HTML fragment it to your page:
 
-	<script language="JavaScript">
-		webcam.set_api_url( 'test.php' );
-		webcam.set_quality( 90 ); // JPEG quality (1 - 100)
-		webcam.set_shutter_sound( true ); // play shutter click sound
-	</script>
+ require(['webcam'],function(webcam){
+ 
+ 	webcam.set_api_url( 'test.php' );
+ 	webcam.set_quality( 90 ); // JPEG quality (1 - 100)
+  	webcam.set_shutter_sound( true ); // play shutter click sound
+ 
+ 	var html = webcam.get_html(320, 240) );
 
-Load the movie into the page.  If you want to load the movie immediately, 
-simply use document.write() as shown below.  If you are designing a DHTML
-application, you can call webcam.get_html(...) at any time to dynamically
-populate a DIV or other element after the page is finished loading.
-
-	<script language="JavaScript">
-		document.write( webcam.get_html(320, 240) );
-	</script>
+	document.getElementById('target_area').innerHTML = html;
+ 
+ });
 
 Add some controls for sending commands to the movie (see API CALLS):
 
@@ -72,7 +73,6 @@ Add some controls for sending commands to the movie (see API CALLS):
 
 Finally, add some code for handling the server response:
 
-	<script language="JavaScript">
 		webcam.set_hook( 'onComplete', 'my_callback_function' );
 		function my_callback_function(response) {
 			alert("Success! PHP returned: " + response);
