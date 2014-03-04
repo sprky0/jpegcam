@@ -43,25 +43,21 @@ First, copy the following files to your web server:
 
 Next, edit your JS to reference and load the library:
 
- require.config({
- 	paths: {
- 	 	'webcam' : 'vendor/webcam.js'
-  	}
- });
+	require.config({
+		paths: {
+			'webcam' : 'vendor/webcam.js'
+		}
+	});
 
 Get the swf embed code via the library, and append that HTML fragment it to your page:
 
- require(['webcam'],function(webcam){
- 
- 	webcam.set_api_url( 'test.php' );
- 	webcam.set_quality( 90 ); // JPEG quality (1 - 100)
-  	webcam.set_shutter_sound( true ); // play shutter click sound
- 
- 	var html = webcam.get_html(320, 240) );
-
-	document.getElementById('target_area').innerHTML = html;
- 
- });
+	require(['webcam'],function(webcam){
+		webcam.set_api_url( 'test.php' );
+		webcam.set_quality( 90 ); // JPEG quality (1 - 100)
+		webcam.set_shutter_sound( true ); // play shutter click sound
+		var html = webcam.get_html(320, 240) );
+		document.getElementById('target_area').innerHTML = html;
+	});
 
 Add some controls for sending commands to the movie (see API CALLS):
 
